@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+<h1>Detalii comanda</h1>
+<table>
+  <tr>
+    <th>Nume Produs</th>
+    <th>Cantitate</th>
+    <th>Pret Per Unitate</th>
+    <th>Pret Total</th>
+    <th>Categorie Produs</th>
+  </tr>
+  <tr th:each="p:${orderLines}">
+    <td th:text="${p.productName}"></td>
+    <td th:text="${p.quantity}"></td>
+    <td th:text="${p.pricePerUnit}"></td>
+    <td th:text="${p.totalPrice}"></td>
+    <td th:text="${p.category}"></td>
+</table>
+</body>
+</html>
