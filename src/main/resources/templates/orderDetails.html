@@ -14,6 +14,7 @@
     <th>Pret Per Unitate</th>
     <th>Pret Total</th>
     <th>Categorie Produs</th>
+    <th>Adresa</th>
   </tr>
   <tr th:each="p:${orderLines}">
     <td th:text="${p.productName}"></td>
@@ -21,6 +22,7 @@
     <td th:text="${p.pricePerUnit}"></td>
     <td th:text="${p.totalPrice}"></td>
     <td th:text="${p.category}"></td>
+    <td th:text="${p.adress}">
 </table>
 </body>
 </html>

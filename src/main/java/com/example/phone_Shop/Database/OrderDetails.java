@@ -6,6 +6,7 @@ public class OrderDetails {
     private double totalPrice;
     private double pricePerUnit;
     private String category;
+    private String adress;
 
     public String getProductName() {
         return productName;
@@ -45,5 +46,13 @@ public class OrderDetails {
 
     public void setCategory(String category) {
         this.category = category;
+    }
+
+    public String getAdress() {
+        return adress;
+    }
+
+    public void setAdress(String adress) {
+        this.adress = adress;
     }
 }

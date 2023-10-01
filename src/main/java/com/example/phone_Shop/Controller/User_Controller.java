@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 @Controller
 public class User_Controller {
@@ -157,8 +158,10 @@ public class User_Controller {
                     orderLines.setQuantity(userSession.getCart().get(idProdusCos)); //cantitate din cos
                     orderLines.setTotalPrice(userSession.getCart().get(idProdusCos)*product.getPrice()); //pret total per tip produs
 
+                    Scanner scanner = new Scanner(System.in);
+
                     order.setUserId(userSession.getId());
-                    order.setAdresa("Strada Primaverii, nr 5, Bucuresti");
+                    order.setAdresa(scanner.toString());
 
                     orderLines.setOrder(order);
 

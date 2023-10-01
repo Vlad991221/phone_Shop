@@ -1,12 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        body{
+            background-image: url('smartphones-shopping-bags.jpg');
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+
+        }
+
+        img.background{
+            filter: blur(50px);
+        }
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="dashboard.css">
     <meta charset="UTF-8">
 </head>
 <body>
   <h1>Bine ai venit la magazinul meu de telefoane!</h1>
+
+  <p th:text="${items}" style="opacity:10px;"></p>
+  <a href="/cart">Cosul dumneavoastra</a>
+
+  <a class="btn btn-outline-primary" href="/history">Order History</a>
+  <a class="btn btn-outline-primary" href="/logout">Log out</a>
 
   <p>PRODUSELE NOASTRE</p>
   <table>
@@ -20,12 +39,12 @@
           <th>Picture</th>
       </tr>
       <tr th:each="p:${productList}">
-          <td th:text="${p.id}"></td>
-          <td th:text="${p.name}"></td>
-          <td th:text="${p.brand}"></td>
-          <td th:text="${p.price}"></td>
-          <td th:text="${p.quantity}"></td>
-          <td th:text="${p.category}"></td>
+          <td th:text="${p.id}" style="color:white;"></td>
+          <td th:text="${p.name}" style="color:white;"></td>
+          <td th:text="${p.brand}" style="color:white;"></td>
+          <td th:text="${p.price}" style="color:white;"></td>
+          <td th:text="${p.quantity}" style="color:white;"></td>
+          <td th:text="${p.category}" style="color:white;"></td>
           <td>
               <img th:src="@{${p.imgSrc}}" class="rotate">
           </td>
@@ -43,12 +62,6 @@
           </td>
       </tr>
   </table>
-
-  <p th:text="${items}"></p>
-  <a href="/cart">Cosul dumneavoastra</a>
-
-  <a class="btn btn-outline-primary" href="/history">Order History</a>
-  <a class="btn btn-outline-primary" href="/logout">Log out</a>
 
 </body>
 </html>
