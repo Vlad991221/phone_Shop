@@ -2,27 +2,36 @@
 <html lang="en">
 <head>
     <style>
-        body{
-            background-image: url('smartphones-shopping-bags.jpg');
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            background-size: 100% 100%;
-
+        body {
+               background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+               background-size: 400% 400%;
+               animation: gradient 15s ease infinite;
+               height: 100vh;
+               color: white;
         }
 
-        img.background{
-            filter: blur(50px);
+        @keyframes gradient {
+                0% {
+                    background-position: 0% 50%;
+                }
+
+                50% {
+                    background-position: 100% 50%;
+                }
+
+                100% {
+                    background-position: 0% 50%;
+                }
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="dashboard.css">
     <meta charset="UTF-8">
 </head>
-<body>
-  <h1>Bine ai venit la magazinul meu de telefoane!</h1>
 
-  <p th:text="${items}" style="opacity:10px;"></p>
+<body>
   <a href="/cart">Cosul dumneavoastra</a>
+  <p th:text="${items}" style="opacity:10px;"></p>
+
 
   <a class="btn btn-outline-primary" href="/history">Order History</a>
   <a class="btn btn-outline-primary" href="/logout">Log out</a>
@@ -39,12 +48,12 @@
           <th>Picture</th>
       </tr>
       <tr th:each="p:${productList}">
-          <td th:text="${p.id}" style="color:white;"></td>
-          <td th:text="${p.name}" style="color:white;"></td>
-          <td th:text="${p.brand}" style="color:white;"></td>
-          <td th:text="${p.price}" style="color:white;"></td>
-          <td th:text="${p.quantity}" style="color:white;"></td>
-          <td th:text="${p.category}" style="color:white;"></td>
+          <td th:text="${p.id}" style="color:black;"></td>
+          <td th:text="${p.name}" style="color:black;"></td>
+          <td th:text="${p.brand}" style="color:black;"></td>
+          <td th:text="${p.price}" style="color:black;"></td>
+          <td th:text="${p.quantity}" style="color:black;"></td>
+          <td th:text="${p.category}" style="color:black;"></td>
           <td>
               <img th:src="@{${p.imgSrc}}" class="rotate">
           </td>

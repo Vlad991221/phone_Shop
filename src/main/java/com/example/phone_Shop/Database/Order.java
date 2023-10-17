@@ -8,8 +8,10 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String adresa;
+    private String address;
     private int userId;
+
+    private String message;
 
     public int getId() {
         return id;
@@ -19,12 +21,12 @@ public class Order {
         this.id = id;
     }
 
-    public String getAdresa() {
-        return adresa;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdresa(String adresa) {
-        this.adresa = adresa;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public int getUserId() {
@@ -33,5 +35,13 @@ public class Order {
 
     public void setUserId(int userId) {
         this.userId = userId;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

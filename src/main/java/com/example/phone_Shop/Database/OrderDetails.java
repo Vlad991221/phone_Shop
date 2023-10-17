@@ -1,12 +1,14 @@
 package com.example.phone_Shop.Database;
 
+import javax.xml.stream.events.Comment;
+
 public class OrderDetails {
     private String productName;
     private int quantity;
     private double totalPrice;
     private double pricePerUnit;
     private String category;
-    private String adress;
+    private String address;
 
     public String getProductName() {
         return productName;
@@ -48,11 +50,11 @@ public class OrderDetails {
         this.category = category;
     }
 
-    public String getAdress() {
-        return adress;
+    public String getAddress() {
+        return address;
     }
 
-    public void setAdress(String adress) {
-        this.adress = adress;
+    public void setAddress(String address) {
+        this.address = address;
     }
 }

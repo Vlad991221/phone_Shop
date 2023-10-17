@@ -12,7 +12,7 @@ public class Order_Lines {
     private int quantity;
     private double totalPrice;
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "order_id")
+    @JoinColumn(name = "Orders_id")
     private Order order;
 
     public int getId() {

@@ -158,10 +158,10 @@ public class User_Controller {
                     orderLines.setQuantity(userSession.getCart().get(idProdusCos)); //cantitate din cos
                     orderLines.setTotalPrice(userSession.getCart().get(idProdusCos)*product.getPrice()); //pret total per tip produs
 
-                    Scanner scanner = new Scanner(System.in);
-
                     order.setUserId(userSession.getId());
-                    order.setAdresa(scanner.toString());
+                    order.setAddress("Strada Bratienilor, nr 56B");
+
+                    order.setMessage("Comanda a fost trimisa catre adresa! Va multumim si va mai asteptam!");
 
                     orderLines.setOrder(order);
 
