@@ -28,8 +28,15 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <h1>Comanda a fost trimisa catre adresa ta! Va multumim si va mai asteptam!</h1>
 
-<a href="dashboard">Inapoi</a>
+<form action="/sendAddress" method="post">
+    <form>
+        <label for="firstName">First name:</label><br>
+        <input type="text" id="firstName" name="Prenume"><br>
+        <label for="lastName">Last name:</label><br>
+        <input type="text" id="lastName" name="Nume"> <br> <br>
+        <button type="submit">Submit</button>
+    </form>
+</form>
 </body>
 </html>

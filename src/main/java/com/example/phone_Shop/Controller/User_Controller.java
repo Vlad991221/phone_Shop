@@ -150,29 +150,36 @@ public class User_Controller {
 
         Order order = new Order();
 
-        for(int idProdusCos : userSession.getCart().keySet()){
-            for (Product product:produseBD) {
-                if (product.getId() == idProdusCos) {
-                    Order_Lines orderLines = new Order_Lines();
-                    orderLines.setProductId(idProdusCos); //id produs
-                    orderLines.setQuantity(userSession.getCart().get(idProdusCos)); //cantitate din cos
-                    orderLines.setTotalPrice(userSession.getCart().get(idProdusCos)*product.getPrice()); //pret total per tip produs
+        if (userSession.getCart().isEmpty()) {
+            ModelAndView modelAndView1 = new ModelAndView("cart");
+            modelAndView1.addObject("message", "Nu poti merge mai departe!");
+            return modelAndView1;
+        }
 
-                    order.setUserId(userSession.getId());
-                    order.setAddress("Strada Bratienilor, nr 56B");
+        for (int idProdusCos : userSession.getCart().keySet()) {
+                for (Product product : produseBD) {
+                    if (product.getId() == idProdusCos) {
+                        Order_Lines orderLines = new Order_Lines();
+                        orderLines.setProductId(idProdusCos); //id produs
+                        orderLines.setQuantity(userSession.getCart().get(idProdusCos)); //cantitate din cos
+                        orderLines.setTotalPrice(userSession.getCart().get(idProdusCos) * product.getPrice()); //pret total per tip produs
 
-                    order.setMessage("Comanda a fost trimisa catre adresa! Va multumim si va mai asteptam!");
+                        order.setUserId(userSession.getId());
 
-                    orderLines.setOrder(order);
+                        order.setAddress("Strada Bratienilor, nr 56B");
 
-                    orderLinesDao.save(orderLines);
+                        orderLines.setOrder(order);
+
+                        orderLinesDao.save(orderLines);
+                    }
                 }
             }
-        }
-        userSession.getCart().clear();
 
-        return new ModelAndView("orderSuccess");
-    }
+
+            userSession.getCart().clear();
+
+            return new ModelAndView("orderSuccess");
+        }
 
     @GetMapping("/detailsProduct")
     public ModelAndView getProductDetails(@RequestParam("productId") int productId) {
@@ -216,4 +223,7 @@ public class User_Controller {
         modelAndView.addObject("orderLines", orderDetailsPerUser);
         return modelAndView;
     }
+
+//    @GetMapping("/adresa")
+//    public ModelAndView adresa() {}
 }

@@ -29,7 +29,7 @@
 </head>
 
 <body>
-  <a href="/cart">Cosul dumneavoastra</a>
+  <a class="btn btn-outline-primary" href="/cart">Cosul dumneavoastra</a>
   <p th:text="${items}" style="opacity:10px;"></p>
 
 
@@ -55,7 +55,7 @@
           <td th:text="${p.quantity}" style="color:black;"></td>
           <td th:text="${p.category}" style="color:black;"></td>
           <td>
-              <img th:src="@{${p.imgSrc}}" class="rotate">
+              <img th:src="@{${p.imgSrc}}" height="300px"; width="200px">
           </td>
           <td>
               <form action="/add-to-cart">

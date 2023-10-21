@@ -45,6 +45,9 @@
     <td th:text="${p.brand}"></td>
     <td th:text="${p.price}"></td>
     <td th:text="${p.category}"></td>
+      <td>
+          <img th:src="@{${p.imgSrc}}" height="300px"; width="200px">
+      </td>
   </tr>
 </table>
 
